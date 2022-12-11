@@ -165,16 +165,15 @@ Completá los pasos para agregar un dispositivo desde el cliente web.
 
 Completá todos los detalles sobre cómo armaste el frontend, sus interacciones, etc.
 
-### Backend
-<img src="doc/gotoiot-logo.png"/>    
-
+### Backend  
+    
 Completá todos los detalles de funcionamiento sobre el backend, sus interacciones con el cliente web, la base de datos, etc.
 
 <details><summary><b>Ver los endpoints disponibles</b></summary><br>
 
 Completá todos los endpoints del backend con los metodos disponibles, los headers y body que recibe, lo que devuelve, ejemplos, etc.
 
-1) Lista todos los dispositivos:
+1) Endpoint que lista todos los dispositivos:
 app.get('/devices1/', function (request,response) {
     //console.log (datos);        
     setTimeout(()=>{
@@ -183,6 +182,50 @@ app.get('/devices1/', function (request,response) {
             });
 
 <img src="doc/listado.png"/>
+    
+ 2) Endpoint que lista el dispositivo con el parámetro id:
+     app.get('/devices3/:id', function (request,response) {
+                let datosFiltrados = datos.filter(item=>item.id==request.params.id);
+                response.json (datosFiltrados[0]);
+                         });
+  
+  <img src="doc/listado_param.png"/>
+    
+3) Endpoint que actualiza el estado del dispositivo según el id, se usa el postam para la validación de este y el resto de endpoints
+    app.post('/devices5/', function (request,response) {
+                            let datosFiltrados = datos.filter(item=>item.id==request.body.id);
+                            if (datosFiltrados.length>0){
+                                datosFiltrados[0].state =request.body.state;
+                            }
+                             response.json (datosFiltrados[0]);
+                                     });   
+    
+     <img src="doc/listado_actualiza.png"/>
+    
+4) Endpoint que inserta un dispositivo:
+     app.post('/devices6/', function (request,response) {             
+                                        datos = {
+                                            id: request.body.id,
+                                            name: request.body.name
+                                           };
+                                          response.json (datos);
+                                                 }); 
+    
+    <img src="doc/listado_inserta.png"/>
+    
+5)  Endpoint que elimina un dispositivo:
+      app.delete('/devices7/', function (request,response) {
+                                                    let datosFiltrados = datos.filter(item=>item.id==request.body.id);
+                                                    if (datosFiltrados.length>0){
+                                                        datosFiltrados[0].name='';
+                                                        datosFiltrados[0].description='';
+                                                        datosFiltrados[0].state='';
+                                                        datosFiltrados[0].type='';
+                                                    }
+                                                    response.json (datosFiltrados[0]);
+                                                             });  
+    
+   <img src="doc/listado_elimina.png"/> 
 
 </details>
 
