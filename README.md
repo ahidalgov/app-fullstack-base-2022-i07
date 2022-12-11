@@ -17,6 +17,7 @@ En esta imagen podés ver una posible implementación del cliente web que contro
 
 ![architecture](doc/webapp-example-1.png)
 
+
 ## Comenzando 🚀
 
 Esta sección es una guía con los pasos escenciales para que puedas poner en marcha la aplicación.
@@ -165,6 +166,7 @@ Completá los pasos para agregar un dispositivo desde el cliente web.
 Completá todos los detalles sobre cómo armaste el frontend, sus interacciones, etc.
 
 ### Backend
+    ![architecture](doc/webapp-example-1.png)
 
 Completá todos los detalles de funcionamiento sobre el backend, sus interacciones con el cliente web, la base de datos, etc.
 
