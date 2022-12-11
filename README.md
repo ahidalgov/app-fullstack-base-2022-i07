@@ -174,25 +174,15 @@ Completá todos los detalles de funcionamiento sobre el backend, sus interaccion
 
 Completá todos los endpoints del backend con los metodos disponibles, los headers y body que recibe, lo que devuelve, ejemplos, etc.
 
-1) Devolver el estado de los dispositivos.
+1) Lista todos los dispositivos:
+app.get('/devices1/', function (request,response) {
+    //console.log (datos);        
+    setTimeout(()=>{
+        response.send(JSON.stringify(datos)).status(200);
+    },2000);
+            });
 
-```json
-{
-    "method": "get",
-    "request_headers": "application/json",
-    "request_body": "",
-    "response_code": 200,
-    "request_body": {
-        "devices": [
-            {
-                "id": 1,
-                "status": true,
-                "description": "Kitchen light"
-            }
-        ]
-    },
-}
-``` 
+<img src="doc/listado.png"/>
 
 </details>
 
