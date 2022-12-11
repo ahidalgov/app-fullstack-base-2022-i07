@@ -166,7 +166,7 @@ Completá los pasos para agregar un dispositivo desde el cliente web.
 Completá todos los detalles sobre cómo armaste el frontend, sus interacciones, etc.
 
 ### Backend
-    ![architecture](doc/webapp-example-1.png)
+<img src="doc/gotoiot-logo.png"/>    
 
 Completá todos los detalles de funcionamiento sobre el backend, sus interacciones con el cliente web, la base de datos, etc.
 
