@@ -164,6 +164,34 @@ Completá los pasos para agregar un dispositivo desde el cliente web.
 ### Frontend
 
 Completá todos los detalles sobre cómo armaste el frontend, sus interacciones, etc.
+    
+1) Armado del endopint que lista todos los dispositivos desde el frontend:
+    this.framework.ejecutarRequest("GET", "http://localhost:8000/devices1",this);
+     <img src="doc/listado_frontend.png"/>
+    
+2) Armado del endpoint que actualiza el estado del dispositivo según el id desde el frontend:
+     let idDisp = objEvento.id.substring(3);
+        let checked = (<HTMLInputElement>objEvento).checked;
+        let json = {id:idDisp, state:checked};
+this.framework.ejecutarRequest("POST","http://localhost:8000/devices5",this,json );
+        alert("Se cambio el estado del dispositivo " + idDisp + " -" + checked); 
+    <img src="doc/listado_actualiza_frontend.png"/>
+  
+3) Armado del endpoint que elimina un dispositivo desde el frontend:
+     let eliDisp = objEvento.id.substring(4);
+        let json = {id:eliDisp};
+this.framework.ejecutarRequest("DELETE","http://localhost:8000/devices7",this,json );
+alert("Se elimino el dispositivo " + eliDisp); 
+    <img src="doc/listado_elimina_frontend.png"/>
+    
+4) Armado del endpoint que inserta un dispositivo desde el frontend:
+    let dispid=(<HTMLInputElement>document.getElementById("iddisp")).value;
+        let nombredisp=(<HTMLInputElement>document.getElementById("nombredisp")).value;
+        let json = {id:dispid, name:nombredisp};
+        this.framework.ejecutarRequest("POST","http://localhost:8000/devices6",this,json );
+        alert("Se inserto el dispositivo numero:" + dispid);
+    <img src="doc/listado_inserta_frontend.png"/>
+    
 
 ### Backend  
     
