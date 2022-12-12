@@ -1,5 +1,6 @@
-interface Acciones{
+interface Acciones {
+recuperarContraseña():string;
+modificarUsuario():string;
 
-  recuperarContraseña(): string;
-  modificarUsuario(): string;
+
 }
