@@ -167,7 +167,7 @@ Completá todos los detalles sobre cómo armaste el frontend, sus interacciones,
     
 1) Armado del endopint que lista todos los dispositivos desde el frontend:
     this.framework.ejecutarRequest("GET", "http://localhost:8000/devices1",this);
-     <img src="doc/listado_frontend.png"/>
+     <img src="doc/listado_frontend.PNG"/>
     
 2) Armado del endpoint que actualiza el estado del dispositivo según el id desde el frontend:
      let idDisp = objEvento.id.substring(3);
