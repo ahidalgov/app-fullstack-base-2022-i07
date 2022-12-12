@@ -209,7 +209,7 @@ app.get('/devices1/', function (request,response) {
     },2000);
             });
 
-<img src="doc/listado.png"/>
+<img src="doc/listado.PNG"/>
     
  2) Endpoint que lista el dispositivo con el parámetro id:
      app.get('/devices3/:id', function (request,response) {
@@ -217,7 +217,7 @@ app.get('/devices1/', function (request,response) {
                 response.json (datosFiltrados[0]);
                          });
   
-  <img src="doc/listado_param.png"/>
+  <img src="doc/listado_param.PNG"/>
     
 3) Endpoint que actualiza el estado del dispositivo según el id, se usa el postam para la validación de este y el resto de endpoints
     app.post('/devices5/', function (request,response) {
@@ -228,7 +228,7 @@ app.get('/devices1/', function (request,response) {
                              response.json (datosFiltrados[0]);
                                      });   
     
-     <img src="doc/listado_actualiza.png"/>
+     <img src="doc/listado_actualiza.PNG"/>
     
 4) Endpoint que inserta un dispositivo:
      app.post('/devices6/', function (request,response) {             
@@ -239,7 +239,7 @@ app.get('/devices1/', function (request,response) {
                                           response.json (datos);
                                                  }); 
     
-    <img src="doc/listado_inserta.png"/>
+    <img src="doc/listado_inserta.PNG"/>
     
 5)  Endpoint que elimina un dispositivo:
       app.delete('/devices7/', function (request,response) {
@@ -253,7 +253,7 @@ app.get('/devices1/', function (request,response) {
                                                     response.json (datosFiltrados[0]);
                                                              });  
     
-   <img src="doc/listado_elimina.png"/> 
+   <img src="doc/listado_elimina.PNG"/> 
 
 </details>
 
