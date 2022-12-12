@@ -13,28 +13,51 @@ app.use(express.static('/home/node/app/static/'));
 
 //=======[ Main module code ]==================================================
 
-app.get('/devices/', function(req, res, next) {
-    devices = [
-        { 
-            'id': 1, 
-            'name': 'Lampara 1', 
-            'description': 'Luz living', 
-            'state': 0, 
-            'type': 1, 
-        },
-        { 
-            'id': 2, 
-            'name': 'Ventilador 1', 
-            'description': 'Ventilador Habitacion', 
-            'state': 1, 
-            'type': 2, 
-        },
-    ]
-    setTimeout(()=>{
-        res.send(JSON.stringify(devices)).status(200);
-    },2000);
+var datos = require ('./datos.js');
 
-});
+
+app.get('/devices1/', function (request,response) {
+    //console.log (datos);        
+    setTimeout(()=>{
+        response.send(JSON.stringify(datos)).status(200);
+    },2000);
+            });
+
+            app.get('/devices3/:id', function (request,response) {
+                let datosFiltrados = datos.filter(item=>item.id==request.params.id);
+                response.json (datosFiltrados[0]);
+                         });
+                         
+                         app.post('/devices5/', function (request,response) {
+                            let datosFiltrados = datos.filter(item=>item.id==request.body.id);
+                            if (datosFiltrados.length>0){
+                                datosFiltrados[0].state =request.body.state;
+                            }
+                            
+                            response.json (datosFiltrados[0]);
+                                     });   
+                                     
+                                     app.post('/devices6/', function (request,response) {
+                                                        
+                                        datos = {
+                                            id: request.body.id,
+                                            name: request.body.name
+                                           };
+                                        
+                                        response.json (datos);
+                                                 });    
+
+                                                 app.delete('/devices7/', function (request,response) {
+                                                    let datosFiltrados = datos.filter(item=>item.id==request.body.id);
+                                                    if (datosFiltrados.length>0){
+                                                        datosFiltrados[0].name='';
+                                                        datosFiltrados[0].description='';
+                                                        datosFiltrados[0].state='';
+                                                        datosFiltrados[0].type='';
+                                                    }
+                                                    
+                                                    response.json (datosFiltrados[0]);
+                                                             });  
 
 app.listen(PORT, function(req, res) {
     console.log("NodeJS API running correctly");
